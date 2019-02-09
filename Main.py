@@ -3,13 +3,18 @@ import json
 # import time
 
 
-def OperationFlow(flow):
-    if flow == "INSTALL":
+def OperationFlow(flow, jobId, StringToBeAdded):
+    if flow == "COPY":
         print(flow)
         startState = Operations.StartState.StartState()
-        startState.echo()
         finishState = Operations.FinishState.FinishState()
-        finishState.echo()
+        # startState.echo()
+        # finishState.echo()
+        startState.setJobId(jobId)
+        print(finishState.getJobId())
+        startState.DoJob()
+        finishState.DoJob()
+
 
     else:
         print(flow)
@@ -18,9 +23,10 @@ def OperationFlow(flow):
 def main():
     with open('resources/incoming.json') as json_file:
         incomingFile = json.load(json_file)
-        currentFlow = incomingFile['Flow Name']
-        # print(currentFlow)
-        OperationFlow(currentFlow)
+    currentFlow = incomingFile['Flow Name']
+    jobId = incomingFile['Job Id']
+    StringToBeAdded = incomingFile['String To Be Deleted']
+    OperationFlow(currentFlow, jobId, StringToBeAdded)
 
 
 
