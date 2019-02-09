@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="config">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="config" />
+              <option name="relativePathToSchema" value="http://json.schemastore.org/config" />
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
