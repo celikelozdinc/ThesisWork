@@ -15,6 +15,12 @@
                   <Item>
                     <option name="path" value="resources/incoming.json" />
                   </Item>
+                  <Item>
+                    <option name="path" value="output/incoming.json" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="input/incoming.json" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>

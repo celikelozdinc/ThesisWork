@@ -16,4 +16,4 @@ class FinishState(State):
 
     def DoJob(self):
         print("DoJob method of FinishState has been called")
-        os.system("robocopy input\ output\ incoming.json")
+        os.system("robocopy output\ results\ incoming.json")
