@@ -9,11 +9,18 @@ class FinishState(State):
     def echo(self):
         print(" Print method of FinishState has been called")
 
-
     @staticmethod
     def getJobId():
         return State.jobId
 
+    @staticmethod
+    def getCurrentTimeStamp():
+        return State.currentTimeStamp
+
+
     def DoJob(self):
         print("DoJob method of FinishState has been called")
         os.system("robocopy output\ results\ incoming.json")
+        os.rename('results\incoming.json', 'results\outgoing.json')
+        os.system("robocopy dumps\ results\ ")
+        print("Finished: TimeStamp is: ", FinishState.getCurrentTimeStamp())

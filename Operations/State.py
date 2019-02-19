@@ -1,6 +1,7 @@
 class State:
-    # static variable
+    # static variables
     jobId = -1
+    currentTimeStamp = -1
 
     # __init__ is known as the constructor
     def __init__(self):
