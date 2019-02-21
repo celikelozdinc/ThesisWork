@@ -1,5 +1,6 @@
 import Operations, json, time, threading, glob, os
 from Client import Client
+from Server import Server
 
 def CleanUpEnvironment():
     files_input = glob.glob('input/*')
@@ -24,6 +25,9 @@ def main():
     currentFlow = incomingFile['Flow Name']
     jobId = incomingFile['Job Id']
     # StringToBeAdded = incomingFile['String To Be Deleted']
+
+    server = Server()
+    server.startServer()
 
     firstClient = Client(currentFlow, jobId)
     firstClient.startStateMachine()

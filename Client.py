@@ -1,4 +1,4 @@
-import Operations, json, time, threading, glob, os
+import Operations, time, threading, socket
 
 class Client:
     # __init__ is known as the constructor
@@ -10,6 +10,9 @@ class Client:
         self.copyState = Operations.CopyState.CopyState()
         self.finishState = Operations.FinishState.FinishState()
         self.startState.setJobId(jobId)
+        self.socketObj = socket.socket()  # Create a socket object
+        self.host = socket.gethostname()  # Get local machine name
+        self.port = 2347  # Reserve a port for your service.
 
     @staticmethod
     def CopyThread(copyState):
@@ -26,6 +29,16 @@ class Client:
         print("Exiting Dump Thread")
 
     def startStateMachine(self):
+
+        self.socketObj.connect((self.host, self.port))
+        message = input(" -> ")  # take input
+        self.socketObj.send(message.encode())  # send message
+        # data =  self.socketObj.recv(1024).decode()  # receive response
+        # print('Received from server: ' + data)  # show in terminal
+        # message = input(" -> ")  # again take input
+        self.socketObj.close() # Close the socket when done
+
+
         self.startState.echo()
         self.finishState.echo()
         print(self.finishState.getJobId())
