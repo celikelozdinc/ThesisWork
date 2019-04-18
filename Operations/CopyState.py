@@ -23,7 +23,7 @@ class CopyState(State):
 
     def DoJob(self):
         print("DoJob method of CopyState has been called")
-        os.system("robocopy input\ output\ incoming.json")
+        os.system("cp input/incoming.json output/incoming.json")
         with open('input/incoming.json', 'r') as json_file:
             incoming = json.load(json_file)
         # incoming['String To Be Deleted'] = ""
@@ -41,7 +41,7 @@ class CopyState(State):
 
         with open('output/incoming.json', 'w') as jsonFile:
             json.dump(incoming, jsonFile)
-        os.system("robocopy output\ input\ incoming.json")
+        os.system("cp output/incoming.json input/incoming.json")
 
         # Set Global TimeStamp #
         CopyState.setCurrentTimeStamp(str(ts))
@@ -54,6 +54,6 @@ class CopyState(State):
         print("Dumping the value: ",curTS)
         # with open('output/incoming.json', 'w') as jsonFile:
         #     json.dump(incoming, jsonFile)
-        os.system("robocopy output\ dumps\ incoming.json")
-        newFile = 'dumps\dump@' +str(curTS.hour) +"."+str(curTS.minute)+"."+str(curTS.second)  + '.json'
-        os.rename('dumps\incoming.json', newFile)
+        os.system("cp output/incoming.json dumps/incoming.json")
+        newFile = 'dumps/dump@' +str(curTS.hour) +"."+str(curTS.minute)+"."+str(curTS.second)  + '.json'
+        os.rename('dumps/incoming.json', newFile)

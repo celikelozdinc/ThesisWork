@@ -20,14 +20,14 @@ class FinishState(State):
 
     def DoJob(self):
         print("DoJob method of FinishState has been called")
-        os.system("robocopy output\ results\ incoming.json")
+        os.system("cp output/incoming.json results/incoming.json")
 
-        os.rename('results\incoming.json', 'results\outgoing.json')
+        os.rename('results/incoming.json', 'results/outgoing.json')
 
         timeStampString = FinishState.getCurrentTimeStamp()
         curTS = datetime.datetime.strptime(timeStampString, '%a, %d %b %Y %H:%M:%S GMT')
-        newFile = "results\outgoing@"+ str(curTS.hour) + "." + str(curTS.minute) + "." + str(curTS.second) + '.json'
-        os.rename('results\outgoing.json',newFile)
+        newFile = "results/outgoing@"+ str(curTS.hour) + "." + str(curTS.minute) + "." + str(curTS.second) + '.json'
+        os.rename('results/outgoing.json',newFile)
 
-        os.system("robocopy dumps\ results\ ")
+        os.system("cp -r dumps/. results/")
         print("Finished: TimeStamp is: ", FinishState.getCurrentTimeStamp())

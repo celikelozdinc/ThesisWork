@@ -19,4 +19,4 @@ class StartState(State):
 
     def DoJob(self):
         print("DoJob method of StartState has been called")
-        os.system("robocopy resources\ input\ incoming.json")
+        os.system("cp resources/incoming.json input/incoming.json")
