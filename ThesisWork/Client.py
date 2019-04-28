@@ -9,10 +9,12 @@ class Client:
         self.startState = Operations.StartState.StartState()
         self.copyState = Operations.CopyState.CopyState()
         self.finishState = Operations.FinishState.FinishState()
+        """
         self.startState.setJobId(jobId)
         self.socketObj = socket.socket()  # Create a socket object
         self.host = socket.gethostname()  # Get local machine name
         self.port = 2347  # Reserve a port for your service.
+        """
 
     @staticmethod
     def CopyThread(copyState):

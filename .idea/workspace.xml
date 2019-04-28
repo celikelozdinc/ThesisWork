@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4fcd6f8-0aaf-4813-a91c-8e112f63ec77" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Operations/FinishState.py" beforeDir="false" afterPath="$PROJECT_DIR$/Operations/FinishState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/incoming.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/incoming.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.42.50.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.42.53.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.42.57.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.43.0.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.43.10.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.43.14.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.43.17.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.43.3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dump@15.43.7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/outgoing.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThesisWork/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThesisWork/Client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThesisWork/Operations/CopyState.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThesisWork/Operations/CopyState.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThesisWork/input/incoming.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThesisWork/input/incoming.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,24 +24,26 @@
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Dockerfile" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="JSON5" value="39" />
-          <entry key="Python" value="18" />
+          <entry key="JSON5" value="40" />
+          <entry key="Python" value="22" />
           <entry key="PythonStub" value="1" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON5" value="149" />
+          <entry key="JSON5" value="169" />
           <entry key="PLAIN_TEXT" value="118" />
-          <entry key="Python" value="4548" />
+          <entry key="Python" value="4714" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -65,88 +56,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Operations/State.py">
+        <entry file="file://$PROJECT_DIR$/ThesisWork/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="-78">
+              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Operations/CopyState.py">
+        <entry file="file://$PROJECT_DIR$/ThesisWork/input/incoming.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="57" column="104" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="104" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Operations/StartState.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#289#306#0" />
-                <element signature="e#354#372#0" />
-                <element signature="e#403#516#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Operations/FinishState.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Main.py">
+        <entry file="file://$PROJECT_DIR$/ThesisWork/Operations/CopyState.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="449">
+              <caret line="62" column="57" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="57" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
-                <element signature="e#108#455#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-              <folding>
-                <element signature="e#161#501#0" />
-                <element signature="e#551#667#0" />
-                <element signature="e#700#817#0" />
-                <element signature="e#545#1114#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Operations/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -206,6 +139,9 @@
         <option value="$PROJECT_DIR$/Client.py" />
         <option value="$PROJECT_DIR$/Operations/FinishState.py" />
         <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/ThesisWork/Client.py" />
+        <option value="$PROJECT_DIR$/ThesisWork/input/incoming.json" />
+        <option value="$PROJECT_DIR$/ThesisWork/Operations/CopyState.py" />
       </list>
     </option>
   </component>
@@ -215,7 +151,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="158" />
     <option name="y" value="355" />
     <option name="width" value="1346" />
@@ -256,7 +192,25 @@
             <path>
               <item name="ThesisWork" type="b2602c69:ProjectViewProjectNode" />
               <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ThesisWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ThesisWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+              <item name="Operations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ThesisWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+              <item name="ThesisWork" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ThesisWork" type="b2602c69:ProjectViewProjectNode" />
@@ -370,7 +324,7 @@
     <frame x="70" y="-8" width="1304" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20418006" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2073955" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -444,6 +398,62 @@
     <entry file="file://$PROJECT_DIR$/results/dump@35.json" />
     <entry file="file://$PROJECT_DIR$/results/incoming.json" />
     <entry file="file://$PROJECT_DIR$/results/dump@25_12.json" />
+    <entry file="file://$PROJECT_DIR$/resources/incoming.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/outgoing.json" />
+    <entry file="file://$PROJECT_DIR$/results/outgoing@22.12.1.json" />
+    <entry file="file://$PROJECT_DIR$/results/outgoing@22.11.30.json" />
+    <entry file="file://$PROJECT_DIR$/Operations/State.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Operations/CopyState.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="57" column="104" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="104" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Operations/StartState.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#289#306#0" />
+            <element signature="e#354#372#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Operations/FinishState.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Operations/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -454,86 +464,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Operations/State.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/incoming.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/outgoing.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" lean-forward="true" selection-start-column="36" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Operations/CopyState.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="57" column="104" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="104" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Operations/StartState.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#289#306#0" />
-            <element signature="e#354#372#0" />
-            <element signature="e#403#516#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Operations/FinishState.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-          <folding>
-            <element signature="e#161#501#0" />
-            <element signature="e#551#667#0" />
-            <element signature="e#700#817#0" />
-            <element signature="e#545#1114#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/outgoing@22.12.1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/outgoing@22.11.30.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="279">
           <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <element signature="e#108#455#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWork/Server.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWork/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWork/input/incoming.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWork/Operations/CopyState.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="62" column="57" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

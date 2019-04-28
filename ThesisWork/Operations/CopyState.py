@@ -39,6 +39,12 @@ class CopyState(State):
         # Set New String #
         #                #
 
+        # Increment and decrement counters #
+        curr_x = int(incoming['x'])
+        curr_y = int(incoming['y'])
+        new_x = curr_x + 1; new_y = curr_y -1 ;
+        incoming['x'] = str(new_x) ; incoming['y'] = str[new_y]
+
         with open('output/incoming.json', 'w') as jsonFile:
             json.dump(incoming, jsonFile)
         os.system("cp output/incoming.json input/incoming.json")
