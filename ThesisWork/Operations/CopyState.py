@@ -42,8 +42,10 @@ class CopyState(State):
         # Increment and decrement counters #
         curr_x = int(incoming['x'])
         curr_y = int(incoming['y'])
-        new_x = curr_x + 1; new_y = curr_y -1 ;
-        incoming['x'] = str(new_x) ; incoming['y'] = str[new_y]
+        print("Read x={} and y={}".format(str(curr_x),str(curr_y)))
+        new_x = curr_x + 1 ; new_y = curr_y - 1
+        print("New x={} and y={}".format(str(new_x),str(new_y)))
+        incoming['x'] = str(new_x) ; incoming['y'] = str(new_y)
 
         with open('output/incoming.json', 'w') as jsonFile:
             json.dump(incoming, jsonFile)
@@ -57,9 +59,14 @@ class CopyState(State):
         timeStampString =  CopyState.getCurrentTimeStamp()
         curTS = datetime.datetime.strptime(timeStampString,'%a, %d %b %Y %H:%M:%S GMT')
         # curTS = datetime.datetime.now()
+        with open('output/incoming.json', 'r') as file:
+            incoming = json.load(file)
+        curr_x = str(incoming['x']); curr_y = str(incoming['y'])
+        print("Counter values to be dumped: {} and {}".format(curr_x,curr_y))
         print("Dumping the value: ",curTS)
         # with open('output/incoming.json', 'w') as jsonFile:
         #     json.dump(incoming, jsonFile)
         os.system("cp output/incoming.json dumps/incoming.json")
         newFile = 'dumps/dump@' +str(curTS.hour) +"."+str(curTS.minute)+"."+str(curTS.second)  + '.json'
         os.rename('dumps/incoming.json', newFile)
+        return curr_x, curr_y

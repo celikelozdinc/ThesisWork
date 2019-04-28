@@ -6,5 +6,5 @@ RUN apk update \
 && mkdir -p /src/deploy
 WORKDIR /src/deploy
 COPY ThesisWork .
-CMD ["python", "./StartServer.py"]
+CMD ["/bin/sh"]
 

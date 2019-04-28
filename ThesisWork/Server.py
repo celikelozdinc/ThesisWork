@@ -8,6 +8,7 @@ class Server:
         self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue='myQueue')
+        self.channel.queue_declare(queue='sync')
         """
         self.socketObj = socket.socket()  # Create a socket object
         self.host = socket.gethostname()  # Get local machine name
@@ -20,10 +21,17 @@ class Server:
         print("ID: {}".format(data['id']))
         print("Name: {}".format(data['name']))
         print('Description: {}'.format(data['description']))
+    
+    def sync_callback(self,ch,method,properties,body):
+        sync_data = json.loads(body)
+        print("X To Be Dumped: {}".format(sync_data['x']))
+        print("Y To Be Dumped: {}".format(sync_data['y']))
+
 
     def startServer(self):
         print("Server is started. ")
         self.channel.basic_consume(queue='myQueue', on_message_callback=self.callback, auto_ack=True)
+        self.channel.basic_consume(queue='sync', on_message_callback=self.sync_callback, auto_ack=True)
         print("Server is started consuming. ")
         self.channel.start_consuming()
 

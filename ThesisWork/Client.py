@@ -1,4 +1,4 @@
-import Operations, time, threading, socket, pika, json
+import Operations, time, threading, socket, pika, json, subprocess, sys
 
 class Client:
     # __init__ is known as the constructor
@@ -6,11 +6,14 @@ class Client:
         print("Constuctor of Client class has been called")
         self.currentFlow = currentFlow
         self.jobId = jobId
+        self.containerIPQuery = "ip a show eth0 | grep -w inet | awk '{print $2'}"
+        #self.containerIP = subprocess.Popen(self.containerIPQuery, shell=True, stdout=subprocess.PIPE, stderr = subprocess.PIPE).communicate()
+        self.containerIP = subprocess.check_output(self.containerIPQuery,shell=True).decode(sys.stdout.encoding).strip().split('/')[0]
         self.startState = Operations.StartState.StartState()
         self.copyState = Operations.CopyState.CopyState()
         self.finishState = Operations.FinishState.FinishState()
-        """
         self.startState.setJobId(jobId)
+        """
         self.socketObj = socket.socket()  # Create a socket object
         self.host = socket.gethostname()  # Get local machine name
         self.port = 2347  # Reserve a port for your service.
@@ -26,7 +29,15 @@ class Client:
     @staticmethod
     def DumpThread(copyState):
         print("Starting Dump Thread")
-        copyState.DoDump()
+        x, y = copyState.DoDump()  
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))      
+        channel = connection.channel()
+        channel.queue_declare(queue='sync')
+        increment = {"x": str(x), "y":str(y)}
+        message = json.dumps(increment)
+        channel.basic_publish(exchange='', routing_key='sync', body=message)
+        print(" [x] Sent 'Increment From client process!' ")
+        connection.close()
         time.sleep(2.2)
         print("Exiting Dump Thread")
 
@@ -49,7 +60,7 @@ class Client:
             {
                 "id": 1,
                 "name": "Client Description",
-                "description": "Hello from client process!"
+                "description": "Hello from client process " + str(self.containerIP)
             }
         message = json.dumps(data)
         channel.basic_publish(exchange='', routing_key='myQueue', body=message)
