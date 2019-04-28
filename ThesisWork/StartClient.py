@@ -9,5 +9,4 @@ jobId = incomingFile['Job Id']
 firstClient = Client(currentFlow, jobId)
 firstClient.startStateMachine()
 
-secondClient = Client(currentFlow, jobId)
-secondClient.startStateMachine()
+

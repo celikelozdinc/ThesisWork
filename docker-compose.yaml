@@ -1,0 +1,37 @@
+version: "3"
+services:
+        statemachine0:
+                build:
+                        context: .
+                        dockerfile: Client/Dockerfile
+                networks:
+                        - network
+        statemachine1:
+                build:
+                        context: .
+                        dockerfile: Client/Dockerfile
+                networks:
+                        - network
+        statemachine2:
+                build:
+                        context: .
+                        dockerfile: Client/Dockerfile
+                networks:
+                        - network
+        rabbitmq:
+                 image: 'rabbitmq:3.6-management-alpine'
+                 ports:
+                         - '5672:5672'
+                         - '15672:15672'
+                 networks:
+                         - network
+        master:
+                build:
+                        context: .
+                        dockerfile: Server/Dockerfile
+                networks:
+                        - network
+        
+networks:
+        network: {}
+

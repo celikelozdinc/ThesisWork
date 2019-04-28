@@ -58,7 +58,7 @@ class Client:
         self.finishState.echo()
         print(self.finishState.getJobId())
         # Create two threads #
-        delay = 60 * 0.5  # for 0.5 minute delay
+        delay = 60 * 15  # for 15 minutes processing
         close_time = time.time() + delay
         self.startState.DoJob()
 

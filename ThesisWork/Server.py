@@ -5,8 +5,8 @@ class Server:
     # __init__ is known as the constructor
     def __init__(self):
         print("Constuctor of Server class has been called")
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
-        self.channel = connection.channel()
+        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
+        self.channel = self.connection.channel()
         self.channel.queue_declare(queue='myQueue')
         """
         self.socketObj = socket.socket()  # Create a socket object
@@ -15,7 +15,7 @@ class Server:
         self.socketObj.bind((self.host, self.port))  # Bind to the port
         """
 
-    def callback(ch, method, properties, body):
+    def callback(self,ch, method, properties, body):
         data = json.loads(body)
         print("ID: {}".format(data['id']))
         print("Name: {}".format(data['name']))

@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+import pika
+import json
+
+try:
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host='172.19.0.2'))
+    print("Connection has been established.")
+except:
+    print("Connection has not been established.")
+try:
+    channel = connection.channel()
+    print("Connection channel has been established.")
+except:
+    print("Connection channel has not been established.")
+try:
+    channel.queue_declare(queue='myQueue')
+    print("Channel queue has been declared.")
+except:
+    print("Channel queue has not been declared.")
+
+def callback(ch, method, properties, body):
+    print("Callback of master has been started")
+    data = json.loads(body)
+    print("ID: {}".format(data['id']))
+    print("Name: {}".format(data['name']))
+    print("Description: {}".format(data['description']))
+
+try:
+    channel.basic_consume(queue='myQueue',on_message_callback=callback, auto_ack=True)
+    print("Basic consume has been started.")
+except:
+    print("Basic consume has not been started.")
+print(" [*] Waiting for messages. To exit, press CTRL + C ")
+try:
+    channel.start_consuming()
+    print("Channel has been started consuming.")
+except:
+    print("Channel has not been started consuming.")
