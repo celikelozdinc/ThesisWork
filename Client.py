@@ -1,4 +1,4 @@
-import Operations, time, threading, socket
+import Operations, time, threading, socket, pika, json
 
 class Client:
     # __init__ is known as the constructor
@@ -30,6 +30,7 @@ class Client:
 
     def startStateMachine(self):
 
+        """
         self.socketObj.connect((self.host, self.port))
         message = input(" -> ")  # take input
         self.socketObj.send(message.encode())  # send message
@@ -37,7 +38,21 @@ class Client:
         # print('Received from server: ' + data)  # show in terminal
         # message = input(" -> ")  # again take input
         self.socketObj.close() # Close the socket when done
+        """
 
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
+        channel = connection.channel()
+        channel.queue_declare(queue='myQueue')
+        data = \
+            {
+                "id": 1,
+                "name": "Client Description",
+                "description": "Hello from client process!"
+            }
+        message = json.dumps(data)
+        channel.basic_publish(exchange='', routing_key='myQueue', body=message)
+        print(" [x] Sent 'Json From client process!'")
+        connection.close()
 
         self.startState.echo()
         self.finishState.echo()
