@@ -9,6 +9,8 @@ class Server:
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue='myQueue')
         self.channel.queue_declare(queue='sync')
+        # Store the changes on each container(client) #
+        self.checkPointDict = dict()
         """
         self.socketObj = socket.socket()  # Create a socket object
         self.host = socket.gethostname()  # Get local machine name
@@ -21,12 +23,26 @@ class Server:
         print("ID: {}".format(data['id']))
         print("Name: {}".format(data['name']))
         print('Description: {}'.format(data['description']))
-    
+        print("Container IP: {}".format((data['containerIP'])))
+        containerIP = str(data['containerIP'])
+        if containerIP in self.checkPointDict:
+            print("CKPTs for this container are already stored.")
+        else:
+            print("CKPTs for this container will be stored from now on.")
+            self.checkPointDict[containerIP] = []
+
     def sync_callback(self,ch,method,properties,body):
         sync_data = json.loads(body)
         print("X To Be Dumped: {}".format(sync_data['x']))
         print("Y To Be Dumped: {}".format(sync_data['y']))
-
+        print("ContainerIP To Be Dumped: {}".format(sync_data['containerIP']))
+        containerIP = str(sync_data['containerIP'])
+        if containerIP in self.checkPointDict:
+            print("CKPTs for this container are already stored. We'll append a new CKPT.")
+            t = tuple((str(sync_data['x']),str(sync_data['y'])))
+            self.checkPointDict[containerIP].append(t)
+        else:
+            print("FATAL ERROR. You are trying to CKPT to another client.")
 
     def startServer(self):
         print("Server is started. ")

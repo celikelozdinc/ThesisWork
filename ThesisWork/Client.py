@@ -27,19 +27,31 @@ class Client:
         print("Exiting Copy Thread")
 
     @staticmethod
-    def DumpThread(copyState):
+    def DumpThread(instance, copyState):
         print("Starting Dump Thread")
-        x, y = copyState.DoDump()  
+        x, y = copyState.DoDump()
+        print(instance.containerIP)
+        # Client.ackWithServer(Client,str(x),str(y))
         connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))      
         channel = connection.channel()
         channel.queue_declare(queue='sync')
-        increment = {"x": str(x), "y":str(y)}
+        increment = {"x": str(x), "y":str(y), "containerIP":str(instance.containerIP)}
         message = json.dumps(increment)
         channel.basic_publish(exchange='', routing_key='sync', body=message)
         print(" [x] Sent 'Increment From client process!' ")
         connection.close()
         time.sleep(2.2)
         print("Exiting Dump Thread")
+
+    def ackWithServer(self, x, y):
+        print("AckWithServer Function.")
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))      
+        channel = connection.channel()
+        channel.queue_declare(queue='sync')
+        increment = {"x": x, "y":y, "containerIP":str(self.containerIP)}
+        message = json.dumps(increment)
+        channel.basic_publish(exchange='', routing_key='sync', body=message)
+        connection.close()
 
     def startStateMachine(self):
 
@@ -60,7 +72,8 @@ class Client:
             {
                 "id": 1,
                 "name": "Client Description",
-                "description": "Hello from client process " + str(self.containerIP)
+                "description": "Hello from client process ",
+                "containerIP": str(self.containerIP)
             }
         message = json.dumps(data)
         channel.basic_publish(exchange='', routing_key='myQueue', body=message)
@@ -79,7 +92,7 @@ class Client:
             if time.time() > close_time:
                 break
             threading.Thread(name='CopyThread', target=self.CopyThread(self.copyState)).start()
-            threading.Thread(name='DumpThread', target=self.DumpThread(self.copyState)).start()
+            threading.Thread(name='DumpThread', target=self.DumpThread(self,self.copyState)).start()
 
         self.finishState.DoJob()
         #                    #
