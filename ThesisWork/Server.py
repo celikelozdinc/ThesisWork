@@ -9,6 +9,7 @@ class Server:
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue='myQueue')
         self.channel.queue_declare(queue='sync')
+        self.channel.queue_declare(queue='stop')
         # Store the changes on each container(client) #
         self.checkPointDict = dict()
         """
@@ -42,12 +43,21 @@ class Server:
             t = tuple((str(sync_data['x']),str(sync_data['y'])))
             self.checkPointDict[containerIP].append(t)
         else:
-            print("FATAL ERROR. You are trying to CKPT to another client.")
+            print("FATAL ERROR. You are trying to insert a CKPT to another client.")
+
+    def stop_callback(self, ch, method, properties, body):
+        stop_data = json.loads(body)
+        operation = str(stop_data['operation'])
+        print("Operation to do: {}".format(operation))
+        print(self.checkPointDict)
+        # self.connection.close()
+
 
     def startServer(self):
         print("Server is started. ")
         self.channel.basic_consume(queue='myQueue', on_message_callback=self.callback, auto_ack=True)
         self.channel.basic_consume(queue='sync', on_message_callback=self.sync_callback, auto_ack=True)
+        self.channel.basic_consume(queue='stop', on_message_callback=self.stop_callback, auto_ack=True)
         print("Server is started consuming. ")
         self.channel.start_consuming()
 

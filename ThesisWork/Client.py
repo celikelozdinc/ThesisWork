@@ -84,7 +84,7 @@ class Client:
         self.finishState.echo()
         print(self.finishState.getJobId())
         # Create two threads #
-        delay = 60 * 15  # for 15 minutes processing
+        delay = 60 * 2  # for 2 minutes processing
         close_time = time.time() + delay
         self.startState.DoJob()
 
@@ -95,4 +95,14 @@ class Client:
             threading.Thread(name='DumpThread', target=self.DumpThread(self,self.copyState)).start()
 
         self.finishState.DoJob()
-        #                    #
+       
+        # Send finish message to server #
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
+        channel = connection.channel()
+        channel.queue_declare(queue='stop')
+        data = {"operation": "stop"}
+        message = json.dumps(data)
+        channel.basic_publish(exchange='', routing_key='stop', body=message)
+        connection.close()
+
+
